@@ -2,11 +2,9 @@
 
 namespace rocketfellows\CountryVatFormatValidatorInterface;
 
-use rocketfellows\CountryVatFormatValidatorInterface\exceptions\CountryVatFormatValidationException;
-
-class CountryVatFormatEmptinessValidator implements CountryVatFormatValidatorInterface
+class CountryVatFormatEmptinessValidator extends CountryVatFormatValidator
 {
-    public function isValid(string $vatNumber): bool
+    protected function isValidFormat(string $vatNumber): bool
     {
         return !empty($vatNumber);
     }
