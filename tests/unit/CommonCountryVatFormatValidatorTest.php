@@ -15,7 +15,7 @@ class CommonCountryVatFormatValidatorTest extends CountryVatFormatValidatorTest
     {
         parent::setUp();
 
-        $this->validator = new CountryVatFormatValidatorMock(self::IS_VALID_FORMAT_DEFAULT_TEST_VALUE);
+        $this->validator = $this->createValidator(self::IS_VALID_FORMAT_DEFAULT_TEST_VALUE);
     }
 
     /**
@@ -26,7 +26,7 @@ class CommonCountryVatFormatValidatorTest extends CountryVatFormatValidatorTest
         Throwable $thrownValidationException,
         Exception $expectedException
     ): void {
-        $this->validator = new CountryVatFormatValidatorMock(true, $thrownValidationException);
+        $this->validator = $this->createValidator(true, $thrownValidationException);
 
         $this->expectExceptionObject($expectedException);
 
@@ -85,7 +85,7 @@ class CommonCountryVatFormatValidatorTest extends CountryVatFormatValidatorTest
      */
     public function testValidateResult(string $vatNumber, bool $expectedValidationResult): void
     {
-        $this->validator = new CountryVatFormatValidatorMock($expectedValidationResult);
+        $this->validator = $this->createValidator($expectedValidationResult);
 
         $this->assertEquals($expectedValidationResult, $this->validator->isValid($vatNumber));
     }
@@ -102,5 +102,16 @@ class CommonCountryVatFormatValidatorTest extends CountryVatFormatValidatorTest
                 'expectedValidationResult' => false,
             ],
         ];
+    }
+
+    private function createValidator(
+        bool $isValidFormat,
+        ?Throwable $thrownValidationException = null
+    ): CountryVatFormatValidatorMock {
+        $validator = new CountryVatFormatValidatorMock(true, $thrownValidationException);
+
+        $this->assertInstanceOf(CountryVatFormatValidator::class, $this->validator);
+
+        return $validator;
     }
 }
