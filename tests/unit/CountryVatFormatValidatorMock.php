@@ -2,6 +2,7 @@
 
 namespace rocketfellows\CountryVatFormatValidatorInterface\tests\unit;
 
+use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidator;
 use Throwable;
 
 class CountryVatFormatValidatorMock extends CountryVatFormatValidator
