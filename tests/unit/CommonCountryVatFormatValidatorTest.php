@@ -4,6 +4,7 @@ namespace rocketfellows\CountryVatFormatValidatorInterface\tests\unit;
 
 use Error;
 use Exception;
+use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidator;
 use rocketfellows\CountryVatFormatValidatorInterface\exceptions\CountryVatFormatValidationException;
 use Throwable;
 
@@ -108,9 +109,9 @@ class CommonCountryVatFormatValidatorTest extends CountryVatFormatValidatorTest
         bool $isValidFormat,
         ?Throwable $thrownValidationException = null
     ): CountryVatFormatValidatorMock {
-        $validator = new CountryVatFormatValidatorMock(true, $thrownValidationException);
+        $validator = new CountryVatFormatValidatorMock($isValidFormat, $thrownValidationException);
 
-        $this->assertInstanceOf(CountryVatFormatValidator::class, $this->validator);
+        $this->assertInstanceOf(CountryVatFormatValidator::class, $validator);
 
         return $validator;
     }
