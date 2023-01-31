@@ -1,8 +1,6 @@
-# Simple component template
+# Country vat format validator interface
 
 ![Code Coverage Badge](./badge.svg)
-
-# Country vat format validator interface
 
 This component provides interface for implementing vat format validators for different countries.
 
