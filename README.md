@@ -24,7 +24,7 @@ Interface implementations must handle inner exceptions and throws exceptions:
 ## CountryVatFormatValidator description
 
 CountryVatFormatValidator enforces an CountryVatFormatValidatorInterface contract, handling all exceptions and throws CountryVatFormatValidationException.
-Inheritors must implement abstract function **_isValid_** wherein all validation must be written.
+Inheritors must implement abstract function **_isValidFormat_** wherein all validation must be written.
 
 Example of inheritor: CountryVatFormatEmptinessValidator
 
