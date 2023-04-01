@@ -7,7 +7,8 @@ This component provides interface for implementing vat format validators for dif
 Consist of:
 - CountryVatFormatValidatorInterface - main interface for country vat format validator.
 - CountryVatFormatValidator - abstract country vat format validator, a class that enforces an interface contract.
-- CountryVatFormatEmptinessValidator - simple country vat format validator, example of implementation CountryVatFormatValidatorInterface, also provides only emptiness validation if for some country format not essential for some reason. 
+- CountryVatFormatEmptinessValidator - simple country vat format validator, example of implementation CountryVatFormatValidatorInterface, also provides only emptiness validation if for some country format not essential for some reason.
+- CountryVatFormatValidators - CountryVatFormatValidatorInterface tuple implementation.
 
 ## Installation
 
@@ -34,6 +35,10 @@ CountryVatFormatEmptinessValidator simple country vat format validator, example 
 Also provides only emptiness validation if for some country format not essential for some reason.
 
 May serve as an example of other country vat format validators implementations.
+
+## CountryVatFormatValidators description
+
+CountryVatFormatValidators - CountryVatFormatValidatorInterface tuple implementation. Represents an immutable tuple of objects of type CountryVatFormatValidatorInterface.
 
 ## Contributing
 
