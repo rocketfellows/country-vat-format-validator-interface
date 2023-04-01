@@ -18,4 +18,21 @@ class CountryVatFormatValidatorsTest extends TestCase
 
         $this->assertEmpty($actualValidators);
     }
+
+    // TODO: implement
+    public function testInitNotEmptyCountryVatFormatValidatorsTuple(): void
+    {
+    }
+
+    // TODO: implement
+    public function getCountryVatFormatValidatorsProvidedData(): array
+    {
+        return [
+            'one validator' => [
+                'expectedValidators' => [
+
+                ],
+            ]
+        ];
+    }
 }
