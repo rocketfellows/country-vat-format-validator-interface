@@ -4,6 +4,7 @@ namespace rocketfellows\CountryVatFormatValidatorInterface\tests\unit;
 
 use PHPUnit\Framework\TestCase;
 use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidatorInterface;
+use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidators;
 
 class CountryVatFormatValidatorsTest extends TestCase
 {
