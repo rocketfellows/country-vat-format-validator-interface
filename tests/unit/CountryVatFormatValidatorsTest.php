@@ -3,6 +3,7 @@
 namespace rocketfellows\CountryVatFormatValidatorInterface\tests\unit;
 
 use PHPUnit\Framework\TestCase;
+use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidatorInterface;
 
 class CountryVatFormatValidatorsTest extends TestCase
 {
@@ -19,20 +20,49 @@ class CountryVatFormatValidatorsTest extends TestCase
         $this->assertEmpty($actualValidators);
     }
 
-    // TODO: implement
-    public function testInitNotEmptyCountryVatFormatValidatorsTuple(): void
-    {
+    /**
+     * @dataProvider getCountryVatFormatValidatorsProvidedData
+     * @param array $expectedValidators
+     */
+    public function testInitCountryVatFormatValidatorsTupleByArray(
+        array $expectedValidators
+    ): void {
+        $validators = new CountryVatFormatValidators(...$expectedValidators);
+        $actualValidators = [];
+
+        foreach ($validators as $validator) {
+            $actualValidators[] = $validator;
+        }
+
+        $this->assertEquals($expectedValidators, $actualValidators);
     }
 
-    // TODO: implement
     public function getCountryVatFormatValidatorsProvidedData(): array
     {
         return [
+            'empty validators' => [
+                'expectedValidators' => [],
+            ],
             'one validator' => [
                 'expectedValidators' => [
-
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
                 ],
-            ]
+            ],
+            'two validators' => [
+                'expectedValidators' => [
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                ],
+            ],
+            'multiple validators' => [
+                'expectedValidators' => [
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                    $this->createMock(CountryVatFormatValidatorInterface::class),
+                ],
+            ],
         ];
     }
 }
